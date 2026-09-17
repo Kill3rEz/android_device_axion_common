@@ -1,6 +1,0 @@
-include $(src)/../axion_modules.mk
-
-ifeq ($(axion_affinity_guard),y)
-obj-m += ax_affinity_guard.o
-ccflags-y += -I$(abspath $(kbuild-dir)/../include)
-endif

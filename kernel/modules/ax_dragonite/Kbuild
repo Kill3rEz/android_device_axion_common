@@ -1,0 +1,11 @@
+include $(src)/../axion_modules.mk
+
+ifeq ($(axion_dragonite),y)
+obj-m += ax_dragonite.o
+ax_dragonite-y := ax_dragonite_main.o ax_dragonite_proc.o
+
+axd_has_proc_ops := $(shell grep -q "struct proc_ops" $(srctree)/include/linux/proc_fs.h 2>/dev/null && echo y)
+ifeq ($(axd_has_proc_ops),y)
+ccflags-y += -DAXD_HAS_PROC_OPS
+endif
+endif
