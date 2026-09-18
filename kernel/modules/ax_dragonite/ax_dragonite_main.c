@@ -6,8 +6,11 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
+#include <linux/version.h>
 #include <linux/sched.h>
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
 #include <linux/sched/task.h>
+#endif
 #include <linux/cpumask.h>
 #include <linux/rcupdate.h>
 #include <linux/string.h>
